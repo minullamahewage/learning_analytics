@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Park ME</title>
+		<title>Learning Analytics System</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta http-equiv="Content-Language" content="en">
@@ -29,7 +29,7 @@
 
 </div>
 					<header id="header" class="alt">
-						<h1><a href="index.html">ParkMe</a></h1>
+						<h1><a href="index.html">LearningAnalytics</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
@@ -37,7 +37,6 @@
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">Home</a></li>
-											<li><a href="mapParks.php">Parks</a></li>
 											<li><a href="User/registration.php">Sign Up</a></li>
 											<li><a href="User/login.php">Login</a></li>
 											<!--li><a href="reviews.php">Reviews</a></li-->
@@ -53,11 +52,11 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-						<h1><img src="assets/graphics/app-icon-transparent.png" alt="login-logo" class="app-logo"><h1>
-						  <h2>Park Me</h2>
-							<p>The smart parking app<br />
-							for your need<br />
-					      <strong>park me</strong></p>
+						<h1><img src="assets/graphics/app-icon.png" alt="login-logo" class="app-logo"><h1>
+						  <h2>School Management System Login</h2>
+							<p>For students and teachers<br />
+							<br />
+					      <strong>Learning Analytics</strong></p-->
 							<ul class="actions special">
 								<li><a href="User/login.php" class="button primary">Login</a></li>
 							</ul>
