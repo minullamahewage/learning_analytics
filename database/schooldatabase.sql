@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2019 at 07:37 AM
+-- Generation Time: Nov 06, 2019 at 07:51 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `devices` (
+  `deviceid` varchar(10) NOT NULL,
   `id` varchar(10) NOT NULL,
   `device_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -101,6 +102,16 @@ CREATE TABLE `teacher_attendance` (
   `teacherid` varchar(10) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
+  ADD PRIMARY KEY (`deviceid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
