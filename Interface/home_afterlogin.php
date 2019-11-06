@@ -2,13 +2,13 @@
 
 <html>
 	<head>
-		<title>Park ME</title>
+		<title>Learning Analytics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta http-equiv="Content-Language" content="en">
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-		<link rel="icon" href="../assets/graphics/app-icon-transparent.png">
+		<link rel="icon" href="../assets/graphics/app-icon.png">
 		
 <?php
 		session_start();
@@ -19,9 +19,9 @@ $uemail = $_SESSION['uemail'];
 
 
 
-if (!$user->get_session()){
+/*if (!$user->get_session()){
  header("location:../User/login.php");
-}
+}*/
 
 if (isset($_GET['q'])){
  $user->user_logout();

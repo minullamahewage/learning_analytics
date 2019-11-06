@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2019 at 07:51 AM
+-- Generation Time: Nov 06, 2019 at 02:51 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -64,10 +64,17 @@ CREATE TABLE `studentlist` (
 --
 
 CREATE TABLE `students` (
-  `studentid` varchar(10) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `intavail` varchar(10) NOT NULL
+  `sid` varchar(10) NOT NULL,
+  `sname` varchar(50) NOT NULL,
+  `intavail` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`sid`, `sname`, `intavail`) VALUES
+('1234S', 'Test1', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,10 +94,17 @@ CREATE TABLE `student_attendance` (
 --
 
 CREATE TABLE `teachers` (
-  `teacherid` varchar(10) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `intavail` varchar(10) NOT NULL
+  `tid` varchar(10) NOT NULL,
+  `tname` varchar(50) NOT NULL,
+  `intavail` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `teachers`
+--
+
+INSERT INTO `teachers` (`tid`, `tname`, `intavail`) VALUES
+('1234T', 'Test2', NULL);
 
 -- --------------------------------------------------------
 

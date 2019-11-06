@@ -16,13 +16,18 @@
 	if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
 		if ( isset( $_REQUEST[ 'submit' ] ) ) {
 			extract( $_REQUEST );
-			$login = $user->check_login( $uemail, $upass );
+			$login = $user->check_login( $userid, $upass );
 			if ( $login ) {
 				// Registration Success
-				if($uemail =="admin@parkme.lk"){
-					header( "location:../Interface/messages.php" );;
-				} else {
-				header( "location:../Interface/home_afterlogin.php#one" );;
+				//redirect to student home if user is student
+				if(substr($userid,-1)=="S"){
+					header( "location:../Interface/student_home.php" );;
+				//redirect to teacher home if user is teacher
+				} elseif(substr($userid,-1)=="T") {
+				header( "location:../Interface/teacher_home.php" );;
+				//redirect to admin control panel if user is admin
+				} elseif($userid=="admin"){
+					header( "location:../Interface/admin_console.php" );;
 				}
 			
 			} else {
@@ -41,8 +46,8 @@
 	<script type="text/javascript" language="javascript">
 		function submitlogin() {
 			var form = document.login;
-			if ( form.uemail.value == "" ) {
-				alert( "Enter email or username." );
+			if ( form.userid.value == "" ) {
+				alert( "Enter user id." );
 				return false;
 			} else if ( form.upass.value == "" ) {
 				alert( "Enter password." );
@@ -78,7 +83,7 @@ function showpass(obj){
 				
 					<img src="../assets/graphics/app-icon.png" alt="login-logo" class="app-logo">
 					<div class="input-group input-group-icon">
-						<input type="email" placeholder="Email" id="emailID" name="uemail"/>
+						<input type="text" placeholder="User ID" id="emailID" name="userid"/>
 						<div class="input-icon"><i class="fa fa-envelope"></i>
 						</div>
 					</div>
