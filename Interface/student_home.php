@@ -32,6 +32,8 @@ if(substr($userid,-1)!=="S"){
     //echo "<script type='text/javascript'>alert('Login as a admin to complete this step.');</script>";
     header("location:../index.php");
 }
-		
-
 ?>
+
+<!--Add code below this-->
+
+
