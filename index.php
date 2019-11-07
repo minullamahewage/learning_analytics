@@ -36,11 +36,11 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="User/registration.php">Sign Up</a></li>
+											<li><a href="index.php">Home</a></li>
+											<!--li><a href="User/registration.php">Sign Up</a></li-->
 											<li><a href="User/login.php">Login</a></li>
 											<!--li><a href="reviews.php">Reviews</a></li-->
-											<li><a href="Interface/about.html">About us</a></li>
+											<li><a href="../Interface/admin_console.php">Admin Console</a></li>
 
 										</ul>
 									</div>
@@ -52,11 +52,11 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-						<h1><img src="assets/graphics/app-icon.png" alt="login-logo" class="app-logo"><h1>
+						<h3><img src="assets/graphics/app-icon-white.png" alt="login-logo" class="app-logo"><h3>
 						  <h2>School Management System Login</h2>
-							<p>For students and teachers<br />
+							<h3>For students and teachers<br />
 							<br />
-					      <strong>Learning Analytics</strong></p-->
+					      <strong>Learning Analytics</strong></h3>
 							<ul class="actions special">
 								<li><a href="User/login.php" class="button primary">Login</a></li>
 							</ul>

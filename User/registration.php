@@ -22,11 +22,18 @@
 			
 				//echo "You have selected :" . $_REQUEST['udob']; //  Displaying Selected Value
 			
-			$register = $user->reg_user($ufname, $uemail,$upass, $udob, $ugender);
+			$register = $user->reg_user($userid, $uname,$upass, $utype);
 			if ($register) {
 			// Registration Success
 			//echo 'Registration successful <a href="login.php">Click here</a> to login';
-				header("location:../User/login.php");
+				if($utype=="Student"){
+					$result_s=$user-> reg_student($userid,$uname);
+					echo "registration student";
+				}
+				elseif($utype=="Teacher"){
+					$result_s=$user-> reg_teacher($userid,$uname);
+				}
+				header("location:../User/admin_console.php");
 			} else {
 			// Registration Failed
 				$message = "Registration failed. Email or Username already exist please try again.\\nTry again.";
@@ -43,24 +50,26 @@
 		function submitreg() {
 			//alert("hi");
 			var form = document.register;
-			if ( form.ufname.value == "" ) {
-				alert("Enter first name");
+			if ( form.userid.value == "" ) {
+				alert("Enter User ID");
 				return false;
-			} else if ( form.uemail.value == "" ) {
-				alert( "Enter email" );
+			} else if ( form.uname.value == "" ) {
+				alert( "Enter Name" );
 				return false;
 			} else if ( form.upass.value == "" ) {
 				alert( "Enter password." );
 				return false;
-
+			} else if ( form.utype.value == "" ) {
+				alert( "Enter User Type" );
+				return false;
 			}else if(form.upass.value!=form.upassconfirm.value){
 				alert("Password does not match.");
 				return false;
-			}else if(form.terms.checked==false){
+			}/*else if(form.terms.checked==false){
 				alert("Please accept terms and conditions to continue");
 				return false;
 				
-			}
+			}*/
 			
 		}
 		function showpass(obj){
@@ -98,23 +107,16 @@ obj.type = "password";
 			<div class="row">
 				<h4>Personal Details</h4>
 				<div class="input-group input-group-icon">
-					<input type="text" placeholder="First Name" id="nameID" name='ufname'/>
+					<input type="text" placeholder="User ID" id="nameID" name='userid'/>
 					<div class="input-icon"><i class="fa fa-user"></i>
 						<div id="fnamevalid" style="color:Red;display:none">
 						</div>
 					</div>
 					
 				</div>
+				
 				<div class="input-group input-group-icon">
-					<input type="text" placeholder="Last Name" id="nameID" name='ulname'/>
-					<div class="input-icon"><i class="fa fa-user"></i>
-						<div id="fnamevalid" style="color:Red;display:none">
-						</div>
-					</div>
-					
-				</div>
-				<div class="input-group input-group-icon">
-					<input type="email" placeholder="Email Adress" id="emailID" name='uemail'/>
+					<input type="text" placeholder="Name" id="emailID" name='uname'/>
 					<div class="input-icon"><i class="fa fa-envelope"></i>
 					</div>
 				</div>
@@ -134,9 +136,17 @@ obj.type = "password";
 					<div class="input-icon"><i class="fa fa-key"></i>
 					</div>
 				</div>
+				<div class="input-group input-group-icon">
+					<input type="text" placeholder="User Type" id="nameID" name='utype'/>
+					<div class="input-icon"><i class="fa fa-user"></i>
+						<div id="fnamevalid" style="color:Red;display:none">
+						</div>
+					</div>
+					
+				</div>
 			</div>
 			
-			<div class="row">
+			<!--div class="row">
 				<div class="col-half">
 					<h4>Date of Birth</h4>
 					<div class="input-group">
@@ -155,14 +165,14 @@ obj.type = "password";
 						<label for="gender-female">Female</label>
 					</div>
 				</div>
-			</div>
+			</div-->
 
 			<div class="row">
-				<h4>Terms and Conditions</h4>
+				<!--h4>Terms and Conditions</h4>
 				<div class="input-group">
 					<input type="checkbox" id="terms" name="terms"/>
 					<label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
-				</div>
+				</div-->
 				<div class="row">
 					<h4></h4>
 					<div class="input-group">
@@ -170,14 +180,14 @@ obj.type = "password";
 						<label for="btn_submit"></label>
 
 					</div>
-					<a href="login.php">Already registered! Click Here!</a>
+					<!--a href="login.php">Already registered! Click Here!</a>
 					</td>
 					<div class="row">
 						<a href="../Interface/privacy.html" target="_blank">
 							<p id="privacy">Terms and Conditions/Privacy Policies</p>
 
 
-					</div>
+					</div-->
 				</div>
 		</form>
 		</div>
