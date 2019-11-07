@@ -3,18 +3,40 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Sign Up Form</title>
+	<title>Register Course</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-	<link rel="icon" href="../assets/graphics/app-icon-transparent.png">
+	<link rel="icon" href="../assets/graphics/app-icon-white.png">
 
 	<link rel="stylesheet" href="../assets/css/style.css">
 
 	<?php
-	require 'class.user.php';
-	$user = new User(); // Checking for user logged in or not
+		session_start();
+        require '../User/class.user.php';
+        
+        $user = new User();
+        $userid = $_SESSION['userid'];
+        
+        
+        
+        /*if (!$user->get_session()){
+         header("location:../User/login.php");
+        }*/
+        
+        if (isset($_GET['q'])){
+         $user->user_logout();
+         header("location:../index.php");
+         }
+        
+        if($userid!=="admin"){
+            //echo "<script type='text/javascript'>alert('Login as a admin to complete this step.');</script>";
+            header("location:../index.php");
+        }
+
+    require '../User/class.course.php';
+	$course = new Course(); // Checking for user logged in or not
 	if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' ) {
 		if ( isset( $_REQUEST[ 'submit' ] ) ) {
 			extract( $_REQUEST );
@@ -22,21 +44,14 @@
 			
 				//echo "You have selected :" . $_REQUEST['udob']; //  Displaying Selected Value
 			
-			$register = $user->reg_user($userid, $uname,$upass, $utype);
+			$register = $course->reg_course($courseid, $coursename, $teacherid);
 			if ($register) {
 			// Registration Success
 			//echo 'Registration successful <a href="login.php">Click here</a> to login';
-				if($utype=="Student"){
-					$result_s=$user-> reg_student($userid,$uname);
-					echo "registration student";
-				}
-				elseif($utype=="Teacher"){
-					$result_s=$user-> reg_teacher($userid,$uname);
-				}
-				header("location:../User/admin_console.php");
+				header("location:../Interface/admin_console.php");
 			} else {
 			// Registration Failed
-				$message = "Registration failed. Email or Username already exist please try again.\\nTry again.";
+				$message = "Registration failed. Course already exist please try again.\\nTry again.";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 
 			}
@@ -50,54 +65,18 @@
 		function submitreg() {
 			//alert("hi");
 			var form = document.register;
-			if ( form.userid.value == "" ) {
-				alert("Enter User ID");
+			if ( form.courseid.value == "" ) {
+				alert("Enter Course ID");
 				return false;
-			} else if ( form.uname.value == "" ) {
-				alert( "Enter Name" );
+			} else if ( form.coursename.value == "" ) {
+				alert( "Enter Course Name" );
 				return false;
-			} else if ( form.upass.value == "" ) {
-				alert( "Enter password." );
+			} else if ( form.teacherid.value == "" ) {
+				alert( "Enter Teacher ID." );
 				return false;
-			} else if ( form.utype.value == "" ) {
-				alert( "Enter User Type" );
-				return false;
-			}else if(form.upass.value!=form.upassconfirm.value){
-				alert("Password does not match.");
-				return false;
-			}/*else if(form.terms.checked==false){
-				alert("Please accept terms and conditions to continue");
-				return false;
-				
-			}*/
+			} 
 			
 		}
-		function showpass(obj){
-
-  var obj = document.getElementById('password');
-  obj.type = "text";
-	
-
-}
-		function hidepass(obj){
-
-  var obj = document.getElementById('password');
-  obj.type = "password";
-	
-
-}
-function showpassr(obj){
-
-var obj = document.getElementById('passwordr');
-obj.type = "text";
-  
-
-}
-	  function hidepassr(obj){
-
-var obj = document.getElementById('passwordr');
-obj.type = "password";
-  
 
 }
 	</script>
@@ -105,10 +84,10 @@ obj.type = "password";
 	<div class="container">
 		<form class="" action="" method="post" name="register">
 			<div class="row">
-				<h4>Personal Details</h4>
+				<h4>Course Details</h4>
 				<div class="input-group input-group-icon">
-					<input type="text" placeholder="User ID" id="nameID" name='userid'/>
-					<div class="input-icon"><i class="fa fa-user"></i>
+					<input type="text" placeholder="Course ID" id="nameID" name='courseid'/>
+					<div class="input-icon"><i class="fa fa-book"></i>
 						<div id="fnamevalid" style="color:Red;display:none">
 						</div>
 					</div>
@@ -116,28 +95,12 @@ obj.type = "password";
 				</div>
 				
 				<div class="input-group input-group-icon">
-					<input type="text" placeholder="Name" id="emailID" name='uname'/>
-					<div class="input-icon"><i class="fa fa-user"></i>
+					<input type="text" placeholder="Course Name" id="emailID" name='coursename'/>
+					<div class="input-icon"><i class="fa fa-book"></i>
 					</div>
 				</div>
 				<div class="input-group input-group-icon">
-					<input type="password" placeholder="Password" id="password" name='upass'/>
-					<div>
-							<span onmousedown = "showpass()" onmouseup = "hidepass()"toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" ></span>
-						</div>
-					<div class="input-icon"><i class="fa fa-key"></i>
-					</div>
-				</div>
-				<div class="input-group input-group-icon">
-					<input type="password" placeholder="Confirm Password" id="passwordr" name='upassconfirm'/>
-					<div>
-							<span onmousedown = "showpassr()" onmouseup = "hidepassr()"toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" ></span>
-						</div>
-					<div class="input-icon"><i class="fa fa-key"></i>
-					</div>
-				</div>
-				<div class="input-group input-group-icon">
-					<input type="text" placeholder="User Type" id="nameID" name='utype'/>
+					<input type="text" placeholder="Teacher ID" id="nameID" name='teacherid'/>
 					<div class="input-icon"><i class="fa fa-user"></i>
 						<div id="fnamevalid" style="color:Red;display:none">
 						</div>

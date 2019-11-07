@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2019 at 02:51 PM
+-- Generation Time: Nov 07, 2019 at 11:44 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `devices` (
   `deviceid` varchar(10) NOT NULL,
-  `id` varchar(10) NOT NULL,
-  `device_name` varchar(30) NOT NULL
+  `userid` varchar(10) NOT NULL,
+  `devicename` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `devices`
+--
+
+INSERT INTO `devices` (`deviceid`, `userid`, `devicename`) VALUES
+('001D', '1234T', 'Test Device');
 
 -- --------------------------------------------------------
 
@@ -41,21 +48,17 @@ CREATE TABLE `devices` (
 --
 
 CREATE TABLE `results` (
-  `studentid` varchar(10) NOT NULL,
+  `sid` varchar(10) NOT NULL,
   `courseid` varchar(10) NOT NULL,
   `marks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `studentlist`
+-- Dumping data for table `results`
 --
 
-CREATE TABLE `studentlist` (
-  `teacherid` varchar(10) NOT NULL,
-  `studentid` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `results` (`sid`, `courseid`, `marks`) VALUES
+('1234S', '001', 90);
 
 -- --------------------------------------------------------
 
@@ -83,7 +86,7 @@ INSERT INTO `students` (`sid`, `sname`, `intavail`) VALUES
 --
 
 CREATE TABLE `student_attendance` (
-  `studentid` varchar(10) NOT NULL,
+  `sid` varchar(10) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -113,7 +116,7 @@ INSERT INTO `teachers` (`tid`, `tname`, `intavail`) VALUES
 --
 
 CREATE TABLE `teacher_attendance` (
-  `teacherid` varchar(10) NOT NULL,
+  `tid` varchar(10) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -126,6 +129,12 @@ CREATE TABLE `teacher_attendance` (
 --
 ALTER TABLE `devices`
   ADD PRIMARY KEY (`deviceid`);
+
+--
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`sid`,`courseid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
