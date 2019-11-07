@@ -29,39 +29,6 @@
 			}
 			else { return false;}
 		}
-		/*** for login process ***/
-		public function check_course($courseid,$coursename){
-			//echo $upass;
-			//echo $uemail;
-        	//$upass = md5($upass);
-			
-			$sql2="SELECT * from courses WHERE courseid='$courseid' and coursename='$coursename'";
-
-			//checking if the username is available in the table
-        	$result = mysqli_query($this->db,$sql2);
-        	$course_data = mysqli_fetch_array($result);
-        	$count_row = $result->num_rows;
-
-	        if ($count_row == 1) {
-	            // this login var will use for the session thing
-	            $_SESSION['login'] = true;
-				$_SESSION['courseid'] = $course_data['courseid'];
-				//$_SESSION['uname'] = $user_data['uname'];
-	            return true;
-	        }
-	        else{
-			    return false;
-			}
-    	}
-
-    	/*** for showing the username or fullname ***/
-    	public function get_fullname($userid){
-    		$sql3="SELECT uname FROM users WHERE userid = '$userid'";
-	        $result = mysqli_query($this->db,$sql3);
-			$user_data = mysqli_fetch_array($result);
-			
-	        return $user_data['uname'];
-    	}
 
     	/*** starting the session ***/
 	    public function get_session(){

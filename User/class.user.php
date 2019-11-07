@@ -57,15 +57,6 @@ include "../Config/db_config.php";
 			}
     	}
 
-    	/*** for showing the username or fullname ***/
-    	public function get_fullname($userid){
-    		$sql3="SELECT uname FROM users WHERE userid = '$userid'";
-	        $result = mysqli_query($this->db,$sql3);
-			$user_data = mysqli_fetch_array($result);
-			
-	        return $user_data['uname'];
-    	}
-
     	/*** starting the session ***/
 	    public function get_session(){
 	        return $_SESSION['login'];
