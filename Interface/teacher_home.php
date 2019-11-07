@@ -69,10 +69,10 @@ if (isset($_GET['q'])){
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="../index.html">Home</a></li>
+											<li><a href="../index.php">Home</a></li>
 											<li><a href="../User/registration.php">My Students</a></li>
 											<li><a href="../User/login.php">My Attendace</a></li>
-											<!--li><a href="reviews.php">Reviews</a></li-->
+											<li><a href="../User/login.php">Login</a></li-->
 											<li><a href="../Interface/about.html">Device List</a></li>
 
 										</ul>

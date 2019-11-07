@@ -72,9 +72,10 @@ if($userid!=="admin"){
 											<li><a href="../index.html">Home</a></li>
 											
 											<li><a href="../User/login.php">Login</a></li>
-                                            <li><a href="../User/login.php">My Record</a></li>
-                                            <li><a href="../User/login.php">My Attendance</a></li>
-                                            <li><a href="../User/login.php">My Results</a></li>
+                                            <li><a href="../User/registration.php">Add User</a></li>
+                                            <li><a href="../Interface/register_course.php">Add Course</a></li>
+                                            <li><a href="../User/login.php">Mark Attendance</a></li>
+                                            <li><a href="../Interface/register_course_student.php">Add Students to Course</a></li>
 											<!--li><a href="reviews.php">Reviews</a></li-->
 											
 
@@ -149,18 +150,18 @@ if($userid!=="admin"){
                         <div>
                         <!-- <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
-                        <button class="button">Update device details</button>
+                        <button class="button">View devices</button>
                         </div>
                         </div></a>
                         <a class="card" href="../User/registration.php">
                         <div class="front" style="background-image: url(../assets/graphics/records.jpg);">
-                        <p>Add User</p>
+                        <p>Placeholder</p>
                         </div>
                         <div class="back">
                         <div>
                         <!-- <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
-                        <button class="button">Add User</button>
+                        <button class="button">placeholder</button>
                         </div>
                         </div></a>
                         </div>

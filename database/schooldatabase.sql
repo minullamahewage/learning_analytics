@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2019 at 11:44 AM
+-- Generation Time: Nov 07, 2019 at 12:10 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -21,6 +21,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `schooldatabase`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courselist`
+--
+
+CREATE TABLE `courselist` (
+  `courseid` varchar(10) NOT NULL,
+  `sid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `courselist`
+--
+
+INSERT INTO `courselist` (`courseid`, `sid`) VALUES
+('001', '1234S');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `courseid` varchar(10) NOT NULL,
+  `coursename` varchar(50) NOT NULL,
+  `teacherid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`courseid`, `coursename`, `teacherid`) VALUES
+('001', 'Computer Science', '1234T');
 
 -- --------------------------------------------------------
 
@@ -120,9 +157,43 @@ CREATE TABLE `teacher_attendance` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userid` varchar(10) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `upass` varchar(50) DEFAULT NULL,
+  `utype` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `uname`, `upass`, `utype`) VALUES
+('1234S', 'Test1', '5a105e8b9d40e1329780d62ea2265d8a', 'Student'),
+('1234T', 'Test2', 'ad0234829205b9033196ba818f7a872b', 'Teacher'),
+('admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `courselist`
+--
+ALTER TABLE `courselist`
+  ADD PRIMARY KEY (`courseid`,`sid`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`courseid`);
 
 --
 -- Indexes for table `devices`
@@ -135,6 +206,12 @@ ALTER TABLE `devices`
 --
 ALTER TABLE `results`
   ADD PRIMARY KEY (`sid`,`courseid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
