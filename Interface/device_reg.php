@@ -63,7 +63,7 @@
 	<div class="container">
 		<form class="" action="" method="post" name="register">
 			<div class="row">
-				<h4>Student Marks</h4>
+				<h4>Device details</h4>
 				<div class="input-group input-group-icon">
 					<input type="text" placeholder="Device ID" id="nameID" name='deviceid'/>
 					<div class="input-icon"><i class="fa fa-user"></i>
