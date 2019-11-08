@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 07, 2019 at 12:10 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Nov 08, 2019 at 11:01 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -38,7 +38,10 @@ CREATE TABLE `courselist` (
 --
 
 INSERT INTO `courselist` (`courseid`, `sid`) VALUES
-('001', '1234S');
+('001', '1234S'),
+('001', '2345S'),
+('002', '2345S'),
+('005', '1234S');
 
 -- --------------------------------------------------------
 
@@ -57,7 +60,13 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`courseid`, `coursename`, `teacherid`) VALUES
-('001', 'Computer Science', '1234T');
+('001', 'Computer Science', '1234T'),
+('002', 'Biology', '2345T'),
+('003', 'Mathematics', '3456T'),
+('004', 'Electrical En.', '4567T'),
+('005', 'Science', '1234T'),
+('006', 'English', '2345T'),
+('007', 'Archi', '2345T');
 
 -- --------------------------------------------------------
 
@@ -114,7 +123,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`sid`, `sname`, `intavail`) VALUES
-('1234S', 'Test1', NULL);
+('1234S', 'Test1', NULL),
+('2345S', 'Test3', NULL),
+('3456S', 'Test5', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,7 +155,10 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`tid`, `tname`, `intavail`) VALUES
-('1234T', 'Test2', NULL);
+('1234T', 'Test2', NULL),
+('2345T', 'Test4', NULL),
+('3456T', 'Test6', NULL),
+('4567T', 'Test8', NULL);
 
 -- --------------------------------------------------------
 
@@ -156,6 +170,16 @@ CREATE TABLE `teacher_attendance` (
   `tid` varchar(10) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `teacher_attendance`
+--
+
+INSERT INTO `teacher_attendance` (`tid`, `date`) VALUES
+('1234T', '2019-07-21'),
+('2345T', '2019-07-04'),
+('1234T', '2019-07-23'),
+('1234T', '2019-07-29');
 
 -- --------------------------------------------------------
 
@@ -177,6 +201,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userid`, `uname`, `upass`, `utype`) VALUES
 ('1234S', 'Test1', '5a105e8b9d40e1329780d62ea2265d8a', 'Student'),
 ('1234T', 'Test2', 'ad0234829205b9033196ba818f7a872b', 'Teacher'),
+('2345T', 'Test4', '86985e105f79b95d6bc918fb45ec7727', 'Teacher'),
 ('admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin');
 
 --
