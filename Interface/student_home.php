@@ -73,7 +73,7 @@ if(substr($userid,-1)!=="S"){
 											
 											<li><a href="../User/login.php">Login</a></li>
                                             <li><a href="../User/login.php">My Record</a></li>
-                                            <li><a href="../User/login.php">My Attendance</a></li>
+                                            <li><a href="../User/student_attendance.php">My Attendance</a></li>
                                             <li><a href="../User/login.php">My Results</a></li>
 											<!--li><a href="reviews.php">Reviews</a></li-->
 											
