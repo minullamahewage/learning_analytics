@@ -121,7 +121,11 @@ if(substr($userid,-1)!=="S"){
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
                         <button class="button">View Attendance</button>
                         </div>
+<<<<<<< HEAD
                         </div></a><a class="card" href="course_view_student.php">
+=======
+                        </div></a><a class="card" href="view_course_student.php">
+>>>>>>> 62aa8c8fe2b7cb8812f12c48e4534a7206c9a851
                         <div class="front" style="background-image: url(../assets/graphics/teachingmat.jpg);">
                         <p>View Courses</p>
                         </div>
@@ -130,7 +134,11 @@ if(substr($userid,-1)!=="S"){
                         
                         <button class="button">View Courses</button>
                         </div>
+<<<<<<< HEAD
                         </div></a><a class="card" href="student_result.php">
+=======
+                        </div></a><a class="card" href="view_results.php">
+>>>>>>> 62aa8c8fe2b7cb8812f12c48e4534a7206c9a851
                         <div class="front" style="background-image: url(../assets/graphics/results.jpg);">
                         <p>My results</p>
                         </div>

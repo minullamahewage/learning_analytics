@@ -61,7 +61,19 @@
 			}
 			else { return false;}
         }
-        
+		
+		public function view_courses($tid){
+			$sql=" SELECT courseid,coursename FROM courses WHERE teacherid='$tid'";
+			$result = mysqli_query($this->db,$sql) or die(mysqli_connect_errno()."Data cannot inserted");
+        	return $result;
+		}
+
+		public function view_students($tid){
+			$sql=" SELECT sname,sid,coursename FROM courses NATURAL JOIN courselist NATURAL JOIN students WHERE teacherid='$tid'";
+			// echo $sql;
+			$result = mysqli_query($this->db,$sql) or die(mysqli_connect_errno()."Data cannot inserted");
+        	return $result;
+		}
         /* Remove course */
         public function remove_teacher($tid){
 			$sql="SELECT * FROM students WHERE tid='$tid' ";
