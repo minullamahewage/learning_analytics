@@ -1,49 +1,37 @@
-<?php 
-session_start();
-include "../Config/db_config.php";
-$userid = $_SESSION['userid'];
-$connection=mysqli_connect('localhost','root','','schooldatabase');
-
-$query="SELECT date from student_attendance where tid='$userid' order by date desc";
-$result= mysqli_query($connection,$query); 
-$date="";
-while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-	 $date=$date.$row['date']."<br>";
-}
-?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../assets/css/style.css">
-	
-	<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-	<link rel="icon"   href="../assets/graphics/app-icon.png">
-
-	</head>
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="" method="post" action="" name="login">
-					<span class="login100-form-title p-b-26">
-						My Attendance
-					</span>
-				
-					<img src="../assets/graphics/app-icon.png" alt="login-logo" class="app-logo">
-					<table >
-						<tr>
-                            <th>Date</th>
-						</tr>
-                        <tr >
-                            <td><?php echo $date;?></td>
-						</tr>
-					</table>	
-				</form>
-			</div>
-		</div>
-	</div>
-</body>
+<html>
+ <head>
+  <title> My Attendence</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+  <script>
+   
+  $(document).ready(function() {
+    var calendar= $('#calendar').fullCalendar({
+        editable:false,
+        header:{
+          left:'prev,next',
+          center:'title',
+          
+        },
+        events:'sload.php',
+    });
+   
+  });
+   
+  </script>
+ </head>
+ <body>
+  <br />
+  <h2 align="center"><a href="#">My Attendence</a></h2>
+  <br />
+  <div class="container">
+   <div id="calendar"></div>
+  </div>
+ </body>
 </html>
