@@ -98,7 +98,7 @@ if (isset($_GET['q'])){
                         </center>
                     <div class="content">
 
-                        <a class="card" href="teacher/studentList.php">
+                        <a class="card" href="view_students.php">
                         <div class="front" style="background-image: url(../assets/graphics/student.jpg);">
                         <p>My students</p>
                         </div>
