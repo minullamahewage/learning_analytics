@@ -71,7 +71,7 @@ if (isset($_GET['q'])){
 										<ul>
 											<li><a href="../index.php">Home</a></li>
 											<li><a href="../User/registration.php">My Students</a></li>
-											<li><a href="../User/login.php">My Attendace</a></li>
+											<li><a href="../User/teacher_attendance.php">My Attendace</a></li>
 											<li><a href="../User/login.php">Login</a></li-->
 											<li><a href="../Interface/about.html">Device List</a></li>
 
