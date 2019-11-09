@@ -118,7 +118,7 @@ if (isset($_GET['q'])){
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
                         <button class="button">View Attendance</button>
                         </div>
-                        </div></a><a class="card" href="teacher/view_course.php">
+                        </div></a><a class="card" href="view_course.php">
                         <div class="front" style="background-image: url(../assets/graphics/teachingmat.jpg);">
                         <p>My Courses</p>
                         </div>
