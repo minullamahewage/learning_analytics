@@ -98,7 +98,7 @@ if (isset($_GET['q'])){
                         </center>
                     <div class="content">
 
-                        <a class="card" href="#">
+                        <a class="card" href="view_student.php">
                         <div class="front" style="background-image: url(../assets/graphics/student.jpg);">
                         <p>My students</p>
                         </div>
@@ -108,7 +108,7 @@ if (isset($_GET['q'])){
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
                         <button class="button">View students</button>
                         </div>
-                        </div></a><a class="card" href="#">
+                        </div></a><a class="card" href="teacher_attendance.php">
                         <div class="front" style="background-image: url(../assets/graphics/attendance.jpg);">
                         <p>My Attendance</p>
                         </div>
@@ -118,7 +118,7 @@ if (isset($_GET['q'])){
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
                         <button class="button">View Attendance</button>
                         </div>
-                        </div></a><a class="card" href="#">
+                        </div></a><a class="card" href="course_view_teacher.php">
                         <div class="front" style="background-image: url(../assets/graphics/teachingmat.jpg);">
                         <p>My Courses</p>
                         </div>
