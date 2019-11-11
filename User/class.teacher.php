@@ -103,6 +103,25 @@
 			else { return false;}
 		}
 
+		/*** for teacher attendance ***/
+		public function mark_attendance($tid, $date,$status){
+
+			//$upass = md5($upass);
+			$sql="SELECT * FROM teacher_attendance WHERE tid='$tid' and date='$date' ";
+
+			//checking if the username or email is available in db
+			$check =  $this->db->query($sql) ;
+			$count_row = $check->num_rows;
+
+			//if the username is not in db then insert to the table
+			if ($count_row == 0){
+				$sql1="INSERT INTO teacher_attendance SET tid='$tid', date='$date', status='$status' ";
+				$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
+				return $result;
+			}
+			else { return false;}
+	}
+
 
 	}
 ?>

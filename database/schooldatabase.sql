@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2019 at 06:09 PM
+-- Generation Time: Nov 11, 2019 at 09:43 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -101,7 +101,8 @@ CREATE TABLE `student_attendance` (
 INSERT INTO `student_attendance` (`id`, `sid`, `date`, `status`) VALUES
 (1, '170000A', '2019-11-09', 'absent'),
 (2, '170000A', '2019-11-10', 'present'),
-(3, '1234S', '2019-11-09', 'present');
+(3, '1234S', '2019-11-09', 'present'),
+(4, '1234S', '2019-11-06', '');
 
 -- --------------------------------------------------------
 
@@ -139,6 +140,13 @@ CREATE TABLE `teacher_attendance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `teacher_attendance`
+--
+
+INSERT INTO `teacher_attendance` (`id`, `tid`, `date`, `status`) VALUES
+(0, '1234T', '2019-11-09', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -174,7 +182,7 @@ ALTER TABLE `teacher_attendance`
 -- AUTO_INCREMENT for table `student_attendance`
 --
 ALTER TABLE `student_attendance`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

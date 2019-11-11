@@ -113,9 +113,9 @@ if($userid!=="admin"){
                         <button class="button">Add User</button>
                         </div>
                         </div></a>
-                        <a class="card" href="#">
+                        <a class="card" href="../Interface/markstudentattendance.php">
                         <div class="front" style="background-image: url(../assets/graphics/attendance.jpg);">
-                        <p>Mark Attendance</p>
+                        <p>Mark Student Attendance</p>
                         </div>
                         <div class="back">
                         <div>
@@ -153,15 +153,15 @@ if($userid!=="admin"){
                         <button class="button">View devices</button>
                         </div>
                         </div></a>
-                        <a class="card" href="../User/registration.php">
+                        <a class="card" href="../Interface/markteacherattendance.php">
                         <div class="front" style="background-image: url(../assets/graphics/records.jpg);">
-                        <p>Placeholder</p>
+                        <p>Mark Teacher Attendance</p>
                         </div>
                         <div class="back">
                         <div>
                         <!-- <p>Consectetur adipisicing elit. Possimus, praesentium?</p>
                         <p>Provident consectetur natus voluptatem quis tenetur sed beatae eius sint.</p> -->
-                        <button class="button">placeholder</button>
+                        <button class="button">Mark Attendance</button>
                         </div>
                         </div></a>
                         </div>
