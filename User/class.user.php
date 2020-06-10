@@ -27,7 +27,7 @@ include "../Config/db_config.php";
 			//if the username is not in db then insert to the table
 			if ($count_row == 0){
 				$sql1="INSERT INTO users SET userid='$userid', uname='$uname', upass='$upass', utype='$utype' ";
-				$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
+				$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot be inserted user");
         		return $result;
 			}
 			else { return false;}
@@ -80,7 +80,7 @@ include "../Config/db_config.php";
 			//if the username is not in db then insert to the table
 			if ($count_row == 0){
 				$sql1="INSERT INTO students SET sid='$userid', sname='$uname' ";
-				$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
+				$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot be inserted student");
         		return $result;
 			}
 			else { return false;}

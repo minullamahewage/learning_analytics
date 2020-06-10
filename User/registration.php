@@ -33,7 +33,7 @@
 				elseif($utype=="Teacher"){
 					$result_s=$user-> reg_teacher($userid,$uname);
 				}
-				header("location:../User/admin_console.php");
+				header("location:../Interface/admin_console.php");
 			} else {
 			// Registration Failed
 				$message = "Registration failed. Email or Username already exist please try again.\\nTry again.";

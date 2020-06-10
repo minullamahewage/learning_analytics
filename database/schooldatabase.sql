@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2019 at 09:43 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Jun 10, 2020 at 10:59 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,45 @@ SET time_zone = "+00:00";
 --
 -- Database: `schooldatabase`
 --
+CREATE DATABASE IF NOT EXISTS `schooldatabase` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `schooldatabase`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courselist`
+--
+
+CREATE TABLE `courselist` (
+  `sid` varchar(10) NOT NULL,
+  `courseid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `courselist`
+--
+
+INSERT INTO `courselist` (`sid`, `courseid`) VALUES
+('1', '1234S');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `courseid` varchar(10) NOT NULL,
+  `coursename` text NOT NULL,
+  `teacherid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`courseid`, `coursename`, `teacherid`) VALUES
+('1', 'test_course', '2345T');
 
 -- --------------------------------------------------------
 
@@ -77,7 +116,6 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`sid`, `sname`, `intavail`) VALUES
-('1234S', 'Test1', NULL),
 ('2345S', 'Test3', NULL),
 ('3456S', 'Test5', NULL);
 
@@ -121,7 +159,6 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`tid`, `tname`, `intavail`) VALUES
-('1234T', 'Test2', NULL),
 ('2345T', 'Test4', NULL),
 ('3456T', 'Test6', NULL),
 ('4567T', 'Test8', NULL);
@@ -146,9 +183,43 @@ CREATE TABLE `teacher_attendance` (
 INSERT INTO `teacher_attendance` (`id`, `tid`, `date`, `status`) VALUES
 (0, '1234T', '2019-11-09', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userid` varchar(10) NOT NULL,
+  `uname` text NOT NULL,
+  `upass` text NOT NULL,
+  `utype` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `uname`, `upass`, `utype`) VALUES
+('1234S', 'test', '098f6bcd4621d373cade4e832627b4f6', 'student'),
+('1234T', 'teacher test', '098f6bcd4621d373cade4e832627b4f6', 'teacher'),
+('admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `courselist`
+--
+ALTER TABLE `courselist`
+  ADD PRIMARY KEY (`courseid`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`courseid`);
 
 --
 -- Indexes for table `devices`
@@ -163,16 +234,34 @@ ALTER TABLE `results`
   ADD PRIMARY KEY (`sid`,`courseid`);
 
 --
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- Indexes for table `student_attendance`
 --
 ALTER TABLE `student_attendance`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `teachers`
+--
+ALTER TABLE `teachers`
+  ADD PRIMARY KEY (`tid`);
+
+--
 -- Indexes for table `teacher_attendance`
 --
 ALTER TABLE `teacher_attendance`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
